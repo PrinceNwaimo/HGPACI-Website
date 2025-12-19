@@ -1,7 +1,6 @@
 const tailwindAnimate = require('tailwindcss-animate');
 const containerQuery = require('@tailwindcss/container-queries');
 
-
 module.exports = {
   darkMode: ['class'],
   content: [
@@ -129,4 +128,4 @@ module.exports = {
   ],
 };
 
-export default config;
+
