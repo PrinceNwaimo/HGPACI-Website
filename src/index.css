@@ -1,0 +1,113 @@
+/* stylelint-disable */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here.
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --radius: 0.5rem;
+    --background: 0 0% 100%;
+    --foreground: 270 50% 15%;
+    --card: 0 0% 100%;
+    --card-foreground: 270 50% 15%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 270 50% 15%;
+    --primary: 270 60% 35%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 270 70% 50%;
+    --secondary: 45 100% 51%;
+    --secondary-foreground: 270 50% 15%;
+    --muted: 270 20% 95%;
+    --muted-foreground: 270 20% 40%;
+    --accent: 45 100% 51%;
+    --accent-foreground: 270 50% 15%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 270 20% 90%;
+    --input: 270 20% 90%;
+    --ring: 270 60% 35%;
+    --chart-1: 270 60% 35%;
+    --chart-2: 45 100% 51%;
+    --chart-3: 0 0% 100%;
+    --chart-4: 270 70% 50%;
+    --chart-5: 270 40% 60%;
+    --gradient-primary: linear-gradient(135deg, hsl(270 60% 35%), hsl(270 70% 50%));
+    --gradient-gold: linear-gradient(135deg, hsl(45 100% 51%), hsl(45 100% 65%));
+    --gradient-hero: linear-gradient(180deg, hsl(270 60% 35% / 0.95), hsl(270 50% 25% / 0.98));
+    --shadow-glow: 0 0 40px hsl(270 70% 50% / 0.3);
+    --shadow-elegant: 0 10px 30px -10px hsl(270 60% 35% / 0.3);
+  }
+
+  .dark {
+    --background: 270 50% 8%;
+    --foreground: 0 0% 98%;
+    --card: 270 40% 12%;
+    --card-foreground: 0 0% 98%;
+    --popover: 270 40% 12%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 270 70% 50%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 270 80% 60%;
+    --secondary: 45 100% 51%;
+    --secondary-foreground: 270 50% 15%;
+    --muted: 270 30% 20%;
+    --muted-foreground: 270 20% 70%;
+    --accent: 45 100% 51%;
+    --accent-foreground: 270 50% 15%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 270 30% 25%;
+    --input: 270 30% 25%;
+    --ring: 270 70% 50%;
+    --chart-1: 270 70% 50%;
+    --chart-2: 45 100% 51%;
+    --chart-3: 0 0% 100%;
+    --chart-4: 270 80% 60%;
+    --chart-5: 270 50% 70%;
+    --gradient-primary: linear-gradient(135deg, hsl(270 70% 50%), hsl(270 80% 60%));
+    --gradient-gold: linear-gradient(135deg, hsl(45 100% 51%), hsl(45 100% 65%));
+    --gradient-hero: linear-gradient(180deg, hsl(270 50% 15% / 0.95), hsl(270 40% 10% / 0.98));
+    --shadow-glow: 0 0 40px hsl(270 80% 60% / 0.4);
+    --shadow-elegant: 0 10px 30px -10px hsl(270 70% 50% / 0.4);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  .gradient-text {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+
+  .gradient-gold-text {
+    background: var(--gradient-gold);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+
+  .glow-effect {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .elegant-shadow {
+    box-shadow: var(--shadow-elegant);
+  }
+}
