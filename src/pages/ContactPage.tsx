@@ -89,8 +89,8 @@ export default function ContactPage() {
                       <div>
                         <h3 className="font-bold text-lg xl:text-xl mb-2 max-sm:text-base">Our Location</h3>
                         <p className="text-muted-foreground max-sm:text-sm">
-                          123 Spirit Avenue<br />
-                          Faith City, FC 12345
+                          75 Abam Street <br />
+                          Umuahia,Abia State,Nigeria.
                         </p>
                       </div>
                     </div>
@@ -106,7 +106,7 @@ export default function ContactPage() {
                       <div>
                         <h3 className="font-bold text-lg xl:text-xl mb-2 max-sm:text-base">Phone</h3>
                         <p className="text-muted-foreground max-sm:text-sm">
-                          (555) 777-8888
+                          +2348063648007
                         </p>
                       </div>
                     </div>
@@ -200,7 +200,7 @@ export default function ContactPage() {
                           <FormItem>
                             <FormLabel>Phone</FormLabel>
                             <FormControl>
-                              <Input type="tel" placeholder="(555) 123-4567" {...field} />
+                              <Input type="tel" placeholder=" +2348063648007" {...field} />
                             </FormControl>
                             <FormMessage />
                           </FormItem>
@@ -278,7 +278,7 @@ export default function ContactPage() {
               Need Immediate <span className="gradient-gold-text">Prayer?</span>
             </h3>
             <p className="text-lg xl:text-xl mb-8 text-white/90 max-w-2xl mx-auto max-sm:text-base">
-              If you need urgent prayer, please call our prayer line at (555) 777-8888 or visit us during service times. We're here to stand with you in faith.
+              If you need urgent prayer, please call our prayer line at  +2348063648007 or visit us during service times. We're here to stand with you in faith.
             </p>
           </div>
         </div>
