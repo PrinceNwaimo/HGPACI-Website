@@ -1,5 +1,12 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Music, Heart, Users, Megaphone, Flame } from "lucide-react";
+import churchLogo from "@/assets/Church Logo.jpeg";
+import worshipImage from "@/assets/ministries/worship-ministry-image.jpeg";
+import prayerImage from "@/assets/ministries/prayer-ministry-image.jpeg";
+import healingImage from "@/assets/ministries/healing-ministry-image.jpeg";
+import youthImage from "@/assets/ministries/youth-ministry-image.jpeg";
+import outreachImage from "@/assets/ministries/outreach-ministry-image.jpeg";
+ 
 
 export default function MinistriesPage() {
   const ministries = [
@@ -13,7 +20,7 @@ export default function MinistriesPage() {
         "Creating an atmosphere for God's presence",
         "Prophetic worship and intercession",
       ],
-      image: "worship-ministry-image.jpg",
+      image: worshipImage,
     },
     {
       name: "Prayer & Intercession",
@@ -21,11 +28,10 @@ export default function MinistriesPage() {
       description: "The prayer ministry is the powerhouse of our church. We gather regularly to intercede for our community, nation, and world, believing that prayer changes everything and moves the hand of God.",
       focus: [
         "Corporate prayer gatherings",
-        "24/7 prayer chain",
         "Intercessory prayer training",
         "Prayer for healing and breakthrough",
       ],
-      image: "prayer-ministry-image.jpg",
+      image: prayerImage,
     },
     {
       name: "Deliverance & Healing",
@@ -37,19 +43,19 @@ export default function MinistriesPage() {
         "Inner healing and restoration",
         "Training in spiritual warfare",
       ],
-      image: "healing-ministry-image.jpg",
+      image: healingImage,
     },
     {
       name: "Youth Ministry",
       icon: Users,
       description: "We are passionate about raising up the next generation to walk in the power and purpose of God. Our youth ministry provides a safe, fun environment where young people can encounter God and grow in their faith.",
       focus: [
-        "Weekly youth services and activities",
+        "Weekly youth activities",
         "Mentorship and discipleship",
         "Youth conferences and camps",
         "Leadership development",
       ],
-      image: "youth-ministry-image.jpg",
+      image: youthImage,
     },
     {
       name: "Outreach & Evangelism",
@@ -59,9 +65,8 @@ export default function MinistriesPage() {
         "Community outreach programs",
         "Street evangelism",
         "Mission trips and partnerships",
-        "Compassion and social justice initiatives",
       ],
-      image: "outreach-ministry-image.jpg",
+      image: outreachImage,
     },
   ];
 
@@ -70,7 +75,12 @@ export default function MinistriesPage() {
       <section className="relative h-[300px] xl:h-[400px] flex items-center justify-center bg-primary">
         <div className="absolute inset-0 bg-gradient-to-b from-primary to-primary/80" />
         <div className="relative z-10 text-center px-4">
-          <Users className="w-16 h-16 xl:w-20 xl:h-20 text-accent mx-auto mb-4" />
+          {/* <Users className="w-16 h-16 xl:w-20 xl:h-20 text-accent mx-auto mb-4" /> */}
+          <img
+  src={churchLogo}
+  alt="Holy Ghost Power Anointed Church International Logo"
+  className="w-16 h-16 xl:w-20 xl:h-20 mx-auto animate-pulse object-contain"
+/>
           <h1 className="text-4xl xl:text-6xl font-bold text-white mb-4 max-sm:text-3xl">Our Ministries</h1>
           <p className="text-lg xl:text-xl text-white/90 max-sm:text-base">
             Serving God and empowering believers to fulfill their calling
@@ -140,7 +150,11 @@ export default function MinistriesPage() {
           </div>
 
           <div className="mt-16 xl:mt-24 bg-primary text-white rounded-lg p-8 xl:p-12 text-center glow-effect">
-            <Flame className="w-16 h-16 xl:w-20 xl:h-20 text-accent mx-auto mb-6" />
+            <img
+  src={churchLogo}
+  alt="Holy Ghost Power Anointed Church International Logo"
+  className="w-16 h-16 xl:w-20 xl:h-20 mx-auto animate-pulse object-contain"
+/>
             <h3 className="text-2xl xl:text-4xl font-bold mb-4 max-sm:text-xl">
               Discover Your <span className="gradient-gold-text">Calling</span>
             </h3>

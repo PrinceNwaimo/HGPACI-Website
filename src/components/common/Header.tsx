@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import routes from "../../routes";
 import { Flame, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import churchLogo from "@/assets/Church Logo.jpeg"
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -15,7 +16,11 @@ const Header: React.FC = () => {
         <div className="flex justify-between items-center h-16 xl:h-20">
           <Link to="/" className="flex items-center gap-3 group">
             <div className="w-10 h-10 xl:w-12 xl:h-12 bg-primary rounded-full flex items-center justify-center glow-effect">
-              <Flame className="w-6 h-6 xl:w-7 xl:h-7 text-white" />
+              <img
+  src={churchLogo}
+  alt="Holy Ghost Power Anointed Church International Logo"
+  className="w-16 h-16 xl:w-20 xl:h-20 mx-auto animate-pulse object-contain"
+/>
             </div>
             <div className="hidden xl:block">
               <div className="text-base xl:text-lg font-bold gradient-text">

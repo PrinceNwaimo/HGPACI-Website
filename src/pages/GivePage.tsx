@@ -1,6 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Heart, Building, Users, Globe, Flame } from "lucide-react";
+import { Heart,  Users, Globe, Flame } from "lucide-react";
+
 
 export default function GivePage() {
   const givingOptions = [
@@ -10,24 +11,14 @@ export default function GivePage() {
       description: "Support the ongoing ministry of the church through your faithful tithes and offerings. Your generosity enables us to continue spreading the gospel and serving our community.",
       scripture: "Bring the whole tithe into the storehouse... Test me in this, says the Lord Almighty. - Malachi 3:10",
     },
-    {
-      title: "Building Fund",
-      icon: Building,
-      description: "Help us expand our facilities to accommodate our growing congregation and create more space for ministry, worship, and community outreach programs.",
-      scripture: "Unless the Lord builds the house, the builders labor in vain. - Psalm 127:1",
-    },
+   
     {
       title: "Missions & Outreach",
       icon: Globe,
       description: "Partner with us in reaching the lost and serving communities locally and around the world. Your gifts support evangelism, mission trips, and humanitarian efforts.",
       scripture: "Go into all the world and preach the gospel to all creation. - Mark 16:15",
     },
-    {
-      title: "Benevolence Fund",
-      icon: Users,
-      description: "Help us support members and community members in times of need. This fund provides assistance with food, housing, medical expenses, and other urgent needs.",
-      scripture: "Share with the Lord's people who are in need. Practice hospitality. - Romans 12:13",
-    },
+   
   ];
 
   return (
@@ -163,7 +154,7 @@ export default function GivePage() {
                   </div>
                   <h4 className="font-bold text-lg xl:text-xl mb-2 max-sm:text-base">Mail</h4>
                   <p className="text-muted-foreground text-sm xl:text-base max-sm:text-xs">
-                    Send checks payable to HGPACI to 123 Spirit Avenue, Faith City, FC 12345
+                    Send checks payable to HGPACI to 75 Abam Street, Umuahia, Abia State, Nigeria.
                   </p>
                 </div>
               </div>
@@ -173,7 +164,6 @@ export default function GivePage() {
           <div className="bg-primary text-white rounded-lg p-8 xl:p-12 glow-effect">
             <div className="grid grid-cols-1 xl:grid-cols-2 gap-8 xl:gap-12 items-center">
               <div>
-                <Flame className="w-16 h-16 xl:w-20 xl:h-20 text-accent mb-6" />
                 <h3 className="text-2xl xl:text-4xl font-bold mb-4 max-sm:text-xl">
                   God's Promise to Givers
                 </h3>
@@ -208,7 +198,7 @@ export default function GivePage() {
 
           <div className="mt-16 xl:mt-24 text-center">
             <p className="text-base xl:text-lg text-muted-foreground max-w-2xl mx-auto max-sm:text-sm">
-              All donations are tax-deductible. Holy Ghost Power Anointed Church International is a registered 501(c)(3) nonprofit organization. For questions about giving, please contact our finance office at (555) 777-8888.
+               Holy Ghost Power Anointed Church International is a registered nonprofit organization. For questions about giving, please contact our finance office at +2348063648007.
             </p>
           </div>
         </div>

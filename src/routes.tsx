@@ -3,10 +3,10 @@ import AboutPage from './pages/AboutPage';
 import ServiceTimesPage from './pages/ServiceTimesPage';
 import MinistriesPage from './pages/MinistriesPage';
 import EventsPage from './pages/EventsPage';
-import SermonsPage from './pages/SermonsPage';
 import ContactPage from './pages/ContactPage';
 import GivePage from './pages/GivePage';
 import type { ReactNode } from 'react';
+import PastorsMessagePage from './pages/PastorsMessagePage';
 
 interface RouteConfig {
   name: string;
@@ -42,9 +42,9 @@ const routes: RouteConfig[] = [
     element: <EventsPage />
   },
   {
-    name: 'Sermons',
-    path: '/sermons',
-    element: <SermonsPage />
+    name: 'Pastors Message',
+    path: '/pastors-message',
+    element: <PastorsMessagePage />
   },
   {
     name: 'Contact',

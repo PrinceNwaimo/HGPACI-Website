@@ -1,32 +1,43 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { Calendar, Clock, MapPin, Flame } from "lucide-react";
+import { Calendar, Clock, MapPin, Flame, Zap, Wind } from "lucide-react";
+import churchLogo from "@/assets/Church Logo.jpeg";
+import churchBuildingImage from "@/assets/service/Church building.jpeg";
+
 
 export default function ServiceTimesPage() {
   const services = [
     {
       name: "Sunday Service",
       day: "Every Sunday",
-      time: "10:00 AM - 12:30 PM",
+      time: "First Service: 7:00 AM - 9:00 AM \nSunday School: 9:00 AM - 10:00 AM \nSecond Service: 10:00 AM - 12:00 Noon",
       description: "Join us for powerful worship, anointed preaching, and the manifestation of God's presence. Experience breakthrough as we gather in unity to honor the Lord.",
       icon: Flame,
       color: "primary",
     },
     {
-      name: "Wednesday Prayer & Bible Study",
+        name: "Tuesday Winning Squad Night",
+        day: "Every Tuesday",
+        time: "9pm",
+        description: "A night dedicated to power filled worship and intercession, where we seek God's face for our city, nation, and the world.",
+        icon: Zap,
+        color: "outline",
+    },
+    {
+      name: "Wednesday Deliverance Service",
       day: "Every Wednesday",
-      time: "7:00 PM - 9:00 PM",
+      time: "5:00 PM - 6:30 PM",
       description: "Deepen your understanding of God's Word and strengthen your prayer life. A time of intimate fellowship, teaching, and intercession.",
       icon: Calendar,
       color: "accent",
     },
     {
-      name: "Friday Night Deliverance Service",
+      name: "Friday Miracle Service",
       day: "Every Friday",
-      time: "8:00 PM - 10:00 PM",
+      time: "5:00 PM - 6:30 PM",
       description: "Witness the power of God as chains are broken and captives are set free. A special service dedicated to healing, deliverance, and miracles.",
-      icon: Flame,
+      icon: Wind,
       color: "primary",
     },
   ];
@@ -83,9 +94,9 @@ export default function ServiceTimesPage() {
                         <Calendar className="w-5 h-5 flex-shrink-0" />
                         <span className="font-semibold max-sm:text-sm">{service.day}</span>
                       </div>
-                      <div className="flex items-center gap-3 text-muted-foreground">
-                        <Clock className="w-5 h-5 flex-shrink-0" />
-                        <span className="font-semibold max-sm:text-sm">{service.time}</span>
+                      <div className="flex items-start gap-3 text-muted-foreground">
+                        <Clock className="w-5 h-5 flex-shrink-0 mt-0.5" />
+                        <span className="font-semibold max-sm:text-sm whitespace-pre-line">{service.time}</span>
                       </div>
                       <p className="text-muted-foreground pt-4 max-sm:text-sm">{service.description}</p>
                     </div>
@@ -108,8 +119,8 @@ export default function ServiceTimesPage() {
                       <div>
                         <h4 className="font-semibold text-lg xl:text-xl mb-2 max-sm:text-base">Our Location</h4>
                         <p className="text-muted-foreground max-sm:text-sm">
-                          123 Spirit Avenue<br />
-                          Faith City, FC 12345
+                          75 Abam Street<br />
+                          Umuahia,Abia State,Nigeria.
                         </p>
                       </div>
                     </div>
@@ -134,7 +145,7 @@ export default function ServiceTimesPage() {
                 </div>
                 <div>
                   <img
-                    src="church-building-image.jpg"
+                    src={churchBuildingImage}
                     alt="Church building"
                     className="rounded-lg elegant-shadow w-full h-[300px] xl:h-[400px] object-cover"
                   />
@@ -144,7 +155,11 @@ export default function ServiceTimesPage() {
           </Card>
 
           <div className="mt-16 xl:mt-24 bg-primary text-white rounded-lg p-8 xl:p-12 text-center glow-effect">
-            <Flame className="w-16 h-16 xl:w-20 xl:h-20 text-accent mx-auto mb-6" />
+            <img
+  src={churchLogo}
+  alt="Holy Ghost Power Anointed Church International Logo"
+  className="w-16 h-16 xl:w-20 xl:h-20 mx-auto animate-pulse object-contain"
+/>
             <h3 className="text-2xl xl:text-4xl font-bold mb-4 max-sm:text-xl">
               First Time Visitor?
             </h3>

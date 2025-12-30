@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Flame, MapPin, Phone, Mail } from "lucide-react";
+import churchLogo from "@/assets/Church Logo.jpeg";
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
@@ -12,7 +13,11 @@ const Footer: React.FC = () => {
           <div>
             <div className="flex items-center gap-3 mb-4">
               <div className="w-10 h-10 bg-accent rounded-full flex items-center justify-center">
-                <Flame className="w-6 h-6 text-accent-foreground" />
+                <img
+  src={churchLogo}
+  alt="Holy Ghost Power Anointed Church International Logo"
+  className="w-16 h-16 xl:w-20 xl:h-20 mx-auto animate-pulse object-contain"
+/>
               </div>
               <div>
                 <div className="text-base font-bold">Holy Ghost Power</div>
@@ -39,8 +44,8 @@ const Footer: React.FC = () => {
               <Link to="/events" className="block text-white/80 hover:text-accent transition-colors">
                 Events
               </Link>
-              <Link to="/sermons" className="block text-white/80 hover:text-accent transition-colors">
-                Sermons
+              <Link to="/pastors-message" className="block text-white/80 hover:text-accent transition-colors">
+                Pastors Message
               </Link>
             </div>
           </div>
@@ -51,13 +56,13 @@ const Footer: React.FC = () => {
               <div className="flex items-start gap-3">
                 <MapPin className="w-4 h-4 text-accent flex-shrink-0 mt-1" />
                 <span className="text-white/80">
-                  123 Spirit Avenue<br />
-                  Faith City, FC 12345
+                  75 Abam Street<br />
+                  Umuahia,Abia State,Nigeria.
                 </span>
               </div>
               <div className="flex items-center gap-3">
                 <Phone className="w-4 h-4 text-accent flex-shrink-0" />
-                <span className="text-white/80">(555) 777-8888</span>
+                <span className="text-white/80">+2348027033783</span>
               </div>
               <div className="flex items-center gap-3">
                 <Mail className="w-4 h-4 text-accent flex-shrink-0" />
@@ -71,15 +76,17 @@ const Footer: React.FC = () => {
             <div className="space-y-3 text-sm max-sm:text-xs text-white/80">
               <div>
                 <div className="font-semibold text-white">Sunday Service</div>
-                <div>10:00 AM - 12:30 PM</div>
+                <div>First Service: 7:00 AM - 9:00 AM</div>
+                <div>Sunday school: 9:00 AM - 10:00 AM</div>
+                <div>Second service: 10:00 AM - 12:00 Noon</div>
               </div>
               <div>
-                <div className="font-semibold text-white">Wednesday Prayer</div>
-                <div>7:00 PM - 9:00 PM</div>
+                <div className="font-semibold text-white">Wednesday Deliverance Service</div>
+                <div>5:00 PM - 6:30 PM</div>
               </div>
               <div>
-                <div className="font-semibold text-white">Friday Deliverance</div>
-                <div>8:00 PM - 10:00 PM</div>
+                <div className="font-semibold text-white">Friday Miracle Service</div>
+                <div>5:00 PM - 6:30 PM</div>
               </div>
             </div>
           </div>

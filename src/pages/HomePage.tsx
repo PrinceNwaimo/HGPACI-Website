@@ -2,6 +2,8 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Link } from "react-router-dom";
 import { Flame, Heart, Users, BookOpen } from "lucide-react";
+import churchLogo from "@/assets/Church Logo.jpeg";
+import churchImage from "@/assets/about/Church worship service.jpeg";
 
 export default function HomePage() {
   return (
@@ -18,7 +20,10 @@ export default function HomePage() {
         
         <div className="relative z-10 text-center px-4 max-w-5xl mx-auto">
           <div className="mb-6 flex justify-center">
-            <Flame className="w-16 h-16 xl:w-20 xl:h-20 text-accent animate-pulse" />
+            <img src={churchLogo}
+    alt="Holy Ghost Power Anointed Church International Logo"
+  className="w-16 h-16 xl:w-20 xl:h-20 mx-auto animate-pulse object-contain"
+/>
           </div>
           <h1 className="text-4xl xl:text-6xl font-bold text-white mb-6 max-sm:text-3xl">
             Welcome to Holy Ghost Power Anointed Church International
@@ -122,7 +127,7 @@ export default function HomePage() {
           <div className="grid grid-cols-1 xl:grid-cols-2 gap-8 xl:gap-12 items-center">
             <div>
               <img
-                src="community-fellowship-image.jpg"
+                src={churchImage}
                 alt="Church community fellowship"
                 className="rounded-lg elegant-shadow w-full h-[300px] xl:h-[400px] object-cover"
               />
@@ -165,7 +170,11 @@ export default function HomePage() {
 
       <section className="py-16 xl:py-24 px-4 bg-primary text-white">
         <div className="max-w-4xl mx-auto text-center">
-          <Flame className="w-16 h-16 xl:w-20 xl:h-20 text-accent mx-auto mb-6" />
+          <img
+  src={churchLogo}
+  alt="Holy Ghost Power Anointed Church International Logo"
+  className="w-16 h-16 xl:w-20 xl:h-20 mx-auto animate-pulse object-contain"
+/>
           <h2 className="text-3xl xl:text-5xl font-bold mb-6 max-sm:text-2xl">
             Experience the Power of the Holy Spirit
           </h2>

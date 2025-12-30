@@ -1,5 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Flame, Heart, Users, BookOpen, Target, Eye } from "lucide-react";
+import aboutImage from "@/assets/about/About dancing.jpeg"
 
 export default function AboutPage() {
   return (
@@ -19,7 +20,7 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 xl:grid-cols-2 gap-12 xl:gap-16 items-center mb-16 xl:mb-24">
             <div>
               <img
-                src="church-worship-image.jpg"
+                src={aboutImage}
                 alt="Church worship service"
                 className="rounded-lg elegant-shadow w-full h-[300px] xl:h-[500px] object-cover"
               />
