@@ -1,0 +1,7 @@
+{
+    "json.schemas": [],
+    // Ignore unknown at-rules like `@tailwind` provided by PostCSS/Tailwind
+    "css.lint.unknownAtRules": "ignore",
+    "scss.lint.unknownAtRules": "ignore",
+    "less.lint.unknownAtRules": "ignore"
+}
