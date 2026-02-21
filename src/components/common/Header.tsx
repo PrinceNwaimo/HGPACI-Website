@@ -1,14 +1,26 @@
 import React, { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation,useNavigate } from "react-router-dom";
 import routes from "../../routes";
-import { Flame, Menu, X } from "lucide-react";
+import { Flame, Menu, X , LogIn, LogOut, User} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import churchLogo from "@/assets/Church Logo.jpeg"
+import { useAuth } from "@/context/AuthContext";
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
+  const { user, profile, signOut, isAdmin } = useAuth();
   const navigation = routes.filter((route) => route.visible !== false);
+
+  const handleSignOut = async () => {
+    try {
+      await signOut();
+      navigate('/');
+    } catch (error) {
+      console.error('Sign out error:', error);
+    }
+  };
 
   return (
     <header className="bg-card border-b border-border sticky top-0 z-50 backdrop-blur-sm bg-card/95">
@@ -52,6 +64,40 @@ const Header: React.FC = () => {
             <Button asChild size="sm" className="ml-4">
               <Link to="/give">Give</Link>
             </Button>
+
+              {/* Admin Link */}
+            {isAdmin && (
+              <Button asChild size="sm" variant="outline" className="ml-2">
+                <Link to="/admin">Admin</Link>
+              </Button>
+            )}
+            
+            {/* Auth Buttons */}
+            {user ? (
+              <div className="flex items-center gap-2 ml-4">
+                {isAdmin && (
+                  <span className="text-xs bg-primary/10 text-primary px-2 py-1 rounded-full font-medium">
+                    Admin
+                  </span>
+                )}
+                <span className="text-sm text-muted-foreground flex items-center gap-1">
+                  <User className="w-4 h-4" />
+                  {profile?.username}
+                </span>
+                <Button variant="outline" size="sm" onClick={handleSignOut}>
+                  <LogOut className="w-4 h-4 mr-1" />
+                  Logout
+                </Button>
+              </div>
+            ) : (
+              <Button variant="outline" size="sm" asChild className="ml-4">
+                <Link to="/login">
+                  <LogIn className="w-4 h-4 mr-1" />
+                  Login
+                </Link>
+              </Button>
+            )}
+
           </div>
 
           <button
@@ -89,6 +135,45 @@ const Header: React.FC = () => {
                   Give
                 </Link>
               </Button>
+
+                {/* Admin Link for Mobile */}
+              {isAdmin && (
+                <Button asChild variant="outline" className="mt-2">
+                  <Link to="/admin" onClick={() => setIsMenuOpen(false)}>
+                    Admin Panel
+                  </Link>
+                </Button>
+              )}
+              
+              {/* Mobile Auth Buttons */}
+              {user ? (
+                <div className="mt-4 pt-4 border-t border-border space-y-2">
+                  <div className="px-4 py-2 text-sm text-muted-foreground flex items-center gap-2">
+                    <User className="w-4 h-4" />
+                    <span>{profile?.username}</span>
+                    {isAdmin && (
+                      <span className="text-xs bg-primary/10 text-primary px-2 py-1 rounded-full font-medium">
+                        Admin
+                      </span>
+                    )}
+                  </div>
+                  <Button variant="outline" className="w-full" onClick={() => {
+                    handleSignOut();
+                    setIsMenuOpen(false);
+                  }}>
+                    <LogOut className="w-4 h-4 mr-2" />
+                    Logout
+                  </Button>
+                </div>
+              ) : (
+                <Button variant="outline" asChild className="mt-4">
+                  <Link to="/login" onClick={() => setIsMenuOpen(false)}>
+                    <LogIn className="w-4 h-4 mr-2" />
+                    Login
+                  </Link>
+                </Button>
+              )}
+              
             </div>
           </div>
         )}

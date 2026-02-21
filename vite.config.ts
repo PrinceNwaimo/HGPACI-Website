@@ -5,7 +5,7 @@ import path from 'path';
 import { miaodaDevPlugin } from 'miaoda-sc-plugin';
 
 export default defineConfig({
-  base: '/HGPACI-Website/', // 👈 REQUIRED for GitHub Pages
+  base: '/', // 👈 REQUIRED for GitHub Pages
   plugins: [
     react(),
     svgr({
