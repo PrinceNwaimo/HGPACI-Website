@@ -11,6 +11,7 @@ import LoginPage from './pages/LoginPage';
 import AdminDashboardPage from './pages/AdminDashboardPage';
 import ManageSermonsPage from './pages/ManageSermonsPage';
 import ManageUsersPage from './pages/ManageUsersPage';
+import PastorsMessagePage from './pages/PastorsMessagePage';
 import type { ReactNode } from 'react';
 
 export interface RouteConfig {
@@ -53,6 +54,12 @@ const routes: RouteConfig[] = [
     name: 'Events',
     path: '/events',
     element: <EventsPage />,
+    visible: true
+  },
+  {
+    name: 'Pastors Message',
+    path: '/pastors message',
+    element: <PastorsMessagePage />,
     visible: true
   },
   {

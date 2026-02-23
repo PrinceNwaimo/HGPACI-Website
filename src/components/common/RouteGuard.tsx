@@ -1,20 +1,25 @@
-import { useEffect } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
-import { useAuth } from "@/context/AuthContext";
+import { useEffect } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { useAuth } from '@/context/AuthContext';
 
+// Routes that don't require authentication
 const PUBLIC_ROUTES = [
-  "/",
-  "/about",
-  "/service-times",
-  "/ministries",
-  "/events",
-  "/sermons",
-  "/contact",
-  "/give",
-  "/login",
+  '/',
+  '/about',
+  '/service-times',
+  '/ministries',
+  '/events',
+  '/sermons',
+  '/contact',
+  '/give',
+  '/login',
 ];
 
-const ADMIN_ROUTES = ["/upload-sermon", "/admin"];
+// Routes that require admin access
+const ADMIN_ROUTES = [
+  '/upload-sermon',
+  '/admin',
+];
 
 export function RouteGuard({ children }: { children: React.ReactNode }) {
   const { user, profile, loading } = useAuth();
@@ -26,30 +31,25 @@ export function RouteGuard({ children }: { children: React.ReactNode }) {
 
     const currentPath = location.pathname;
 
-    const isPublic = PUBLIC_ROUTES.includes(currentPath);
-    const isAdminRoute = ADMIN_ROUTES.some(route =>
-      currentPath.startsWith(route)
-    );
+    // Check if route requires admin access
+    const isAdminRoute = ADMIN_ROUTES.some(route => currentPath.startsWith(route));
 
-    // Allow public routes
-    if (isPublic) return;
-
-    // Require login for protected routes
-    if (!user) {
-      navigate("/login", { state: { from: currentPath }, replace: true });
-      return;
-    }
-
-    // Require admin role
-    if (isAdminRoute && profile?.role !== "admin") {
-      navigate("/", { replace: true });
+    if (isAdminRoute) {
+      if (!user) {
+        // Not logged in, redirect to login
+        navigate('/login', { state: { from: currentPath }, replace: true });
+      } else if (profile?.role !== 'admin') {
+        // Logged in but not admin, redirect to home
+        navigate('/', { replace: true });
+      }
     }
   }, [user, profile, loading, location, navigate]);
 
+  // Show loading state while checking auth
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
-        Loading...
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary"></div>
       </div>
     );
   }
