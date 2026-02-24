@@ -31,12 +31,8 @@ const AdminDashboardPage: React.FC = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    if (!isAdmin) {
-      navigate('/');
-      return;
-    }
-    loadDashboardData();
-  }, [isAdmin, navigate]);
+       loadDashboardData();
+  }, []);
 
   const loadDashboardData = async () => {
     try {

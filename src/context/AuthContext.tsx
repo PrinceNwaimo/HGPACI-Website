@@ -15,8 +15,8 @@ interface AuthContextType {
   user: User | null;
   profile: Profile | null;
   loading: boolean;
-  signIn: (username: string, password: string) => Promise<void>;
-  signUp: (username: string, password: string) => Promise<void>;
+  signIn: (email: string, password: string) => Promise<void>;
+  signUp: (email: string, username: string, password: string) => Promise<void>;
   signOut: () => Promise<void>;
   isAdmin: boolean;
 }
@@ -61,7 +61,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         .from('profiles')
         .select('*')
         .eq('id', userId)
-        .single();
+        .maybeSingle();
 
       if (error) throw error;
       setProfile(data);
@@ -73,9 +73,9 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     }
   };
 
-  const signIn = async (username: string, password: string) => {
+  const signIn = async (email: string,  password: string) => {
     // Convert username to email format (username@miaoda.com)
-    const email = `${username}@miaoda.com`;
+    // const email = `${username}@miaoda.com`;
     
     const { error } = await supabase.auth.signInWithPassword({
       email,
@@ -85,14 +85,14 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     if (error) throw error;
   };
 
-  const signUp = async (username: string, password: string) => {
+  const signUp = async (email: string, username: string, password: string) => {
     // Validate username (only letters, digits, and underscore)
     if (!/^[a-zA-Z0-9_]+$/.test(username)) {
       throw new Error('Username can only contain letters, digits, and underscore');
     }
 
     // Convert username to email format (username@miaoda.com)
-    const email = `${username}@miaoda.com`;
+    // const email = `${username}@miaoda.com`;
 
     const { error } = await supabase.auth.signUp({
       email,

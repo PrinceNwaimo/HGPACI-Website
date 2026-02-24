@@ -3,19 +3,24 @@ import { Button } from "@/components/ui/button";
 import { Heart,  Users, Globe, Flame } from "lucide-react";
 
 
+
 export default function GivePage() {
   const givingOptions = [
     {
       title: "Tithes & Offerings",
       icon: Heart,
-      description: "Support the ongoing ministry of the church through your faithful tithes and offerings. Your generosity enables us to continue spreading the gospel and serving our community.",
+      // description: "Support the ongoing ministry of the church through your faithful tithes and offerings. Your generosity enables us to continue spreading the gospel and serving our community.",
+      description: " 4110017438 || Fidelity bank || Holy Ghost Power Anointed Church International",
       scripture: "Bring the whole tithe into the storehouse... Test me in this, says the Lord Almighty. - Malachi 3:10",
     },
    
     {
       title: "Missions & Outreach",
       icon: Globe,
-      description: "Partner with us in reaching the lost and serving communities locally and around the world. Your gifts support evangelism, mission trips, and humanitarian efforts.",
+      // description: "Partner with us in reaching the lost and serving communities locally and around the world. Your gifts support evangelism, mission trips, and humanitarian efforts.",
+      description:  `0051396706 ||
+        Access Bank  (Dollar Account) ||
+        Ogbonna Onyekachi`,
       scripture: "Go into all the world and preach the gospel to all creation. - Mark 16:15",
     },
    

@@ -18,11 +18,13 @@ import { useToast } from '@/hooks/use-toast';
 import { useAuth } from '@/context/AuthContext';
 
 interface LoginFormData {
-  username: string;
+  email: string;
+  // username: string;
   password: string;
 }
 
 interface SignUpFormData {
+  email: string;
   username: string;
   password: string;
   confirmPassword: string;
@@ -39,13 +41,15 @@ const LoginPage: React.FC = () => {
 
   const loginForm = useForm<LoginFormData>({
     defaultValues: {
-      username: '',
+      email: '',
+      // username: '',
       password: '',
     },
   });
 
   const signUpForm = useForm<SignUpFormData>({
     defaultValues: {
+      email: '',
       username: '',
       password: '',
       confirmPassword: '',
@@ -55,7 +59,7 @@ const LoginPage: React.FC = () => {
   const onLogin = async (data: LoginFormData) => {
     setIsLoading(true);
     try {
-      await signIn(data.username, data.password);
+      await signIn(data.email, data.password);
       toast({
         title: 'Welcome back!',
         description: 'You have successfully logged in.',
@@ -84,20 +88,28 @@ const LoginPage: React.FC = () => {
 
     setIsLoading(true);
     try {
-      await signUp(data.username, data.password);
+      await signUp(data.email, data.username, data.password);
       toast({
         title: 'Account Created!',
         description: 'You have successfully registered. You can now log in.',
       });
       // Auto-login after signup
-      await signIn(data.username, data.password);
+      await signIn(data.email, data.password);
       navigate(from, { replace: true });
     } catch (error: any) {
+      if (error.status === 429) {
+        toast({
+          title: 'Try Again Later',
+          description: 'Please wait a moment before trying again. Too many requests.',
+          variant: 'destructive',
+        });
+      } else{
       toast({
         title: 'Registration Failed',
         description: error.message || 'Failed to create account',
         variant: 'destructive',
       });
+    }
     } finally {
       setIsLoading(false);
     }
@@ -136,7 +148,26 @@ const LoginPage: React.FC = () => {
               <TabsContent value="login">
                 <Form {...loginForm}>
                   <form onSubmit={loginForm.handleSubmit(onLogin)} className="space-y-4">
-                    <FormField
+                     <FormField
+                      control={loginForm.control}
+                      name="email"
+                      rules={{ required: 'Email is required' }}
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>Email</FormLabel>
+                          <FormControl>
+                            <Input
+                              type="email"
+                              placeholder="Enter your email"
+                              {...field}
+                              disabled={isLoading}
+                            />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                    {/* <FormField
                       control={loginForm.control}
                       name="username"
                       rules={{ required: 'Username is required' }}
@@ -153,7 +184,7 @@ const LoginPage: React.FC = () => {
                           <FormMessage />
                         </FormItem>
                       )}
-                    />
+                    /> */}
 
                     <FormField
                       control={loginForm.control}
@@ -196,6 +227,34 @@ const LoginPage: React.FC = () => {
               <TabsContent value="signup">
                 <Form {...signUpForm}>
                   <form onSubmit={signUpForm.handleSubmit(onSignUp)} className="space-y-4">
+
+
+      {/* ✅ EMAIL FIELD */}
+      <FormField
+        control={signUpForm.control}
+        name="email"
+        rules={{
+          required: 'Email is required',
+          pattern: {
+            value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+            message: 'Enter a valid email address',
+          },
+        }}
+        render={({ field }) => (
+          <FormItem>
+            <FormLabel>Email</FormLabel>
+            <FormControl>
+              <Input
+                type="email"
+                placeholder="Enter your email"
+                {...field}
+                disabled={isLoading}
+              />
+            </FormControl>
+            <FormMessage />
+          </FormItem>
+        )}
+      />
                     <FormField
                       control={signUpForm.control}
                       name="username"

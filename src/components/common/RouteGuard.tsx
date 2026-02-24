@@ -9,6 +9,7 @@ const PUBLIC_ROUTES = [
   '/service-times',
   '/ministries',
   '/events',
+  '/pastors message',
   '/sermons',
   '/contact',
   '/give',

@@ -1,8 +1,9 @@
-import { defineConfig } from 'vite';
+// import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import svgr from 'vite-plugin-svgr';
 import path from 'path';
 import { miaodaDevPlugin } from 'miaoda-sc-plugin';
+import { defineConfig, PluginOption } from 'vite';
 
 export default defineConfig({
   base: '/', // 👈 REQUIRED for GitHub Pages
@@ -15,7 +16,7 @@ export default defineConfig({
         namedExport: 'ReactComponent',
       },
     }),
-    miaodaDevPlugin(),
+    miaodaDevPlugin() as PluginOption ,
   ],
   resolve: {
     alias: {

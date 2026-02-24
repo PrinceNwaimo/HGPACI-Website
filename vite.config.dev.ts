@@ -31,7 +31,7 @@
   configureServer(server : ViteDevServer) {
     let hmrEnabled = true;
 
-    // 包装原来的 send 方法
+   
     const _send = server.ws.send;
     server.ws.send = (payload : HMRPayload) => {
       if (hmrEnabled) {
@@ -41,7 +41,7 @@
       }
     };
 
-    // 提供接口切换 HMR
+    
     server.middlewares.use('/innerapi/v1/sourcecode/__hmr_off', (req, res) => {
       hmrEnabled = false;
       let body = {
@@ -62,12 +62,12 @@
       res.end(JSON.stringify(body));
     });
 
-    // 注册一个 HTTP API，用来手动触发一次整体刷新
+    
     server.middlewares.use('/innerapi/v1/sourcecode/__hmr_reload', (req, res) => {
       if (hmrEnabled) {
         server.ws.send({
           type: 'full-reload',
-          path: '*', // 整页刷新
+          path: '*', 
         });
       }
       res.statusCode = 200;

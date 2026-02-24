@@ -57,8 +57,8 @@ const routes: RouteConfig[] = [
     visible: true
   },
   {
-    name: 'Pastors Message',
-    path: '/pastors message',
+    name: 'Pastors message',
+    path: '/pastors-message',
     element: <PastorsMessagePage />,
     visible: true
   },

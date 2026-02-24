@@ -47,12 +47,8 @@ const ManageSermonsPage: React.FC = () => {
   const [sermonToDelete, setSermonToDelete] = useState<Sermon | null>(null);
 
   useEffect(() => {
-    if (!isAdmin) {
-      navigate('/');
-      return;
-    }
-    loadSermons();
-  }, [isAdmin, navigate]);
+     loadSermons();
+  }, []); 
 
   useEffect(() => {
     if (searchQuery) {

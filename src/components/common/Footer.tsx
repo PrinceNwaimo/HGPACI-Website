@@ -45,7 +45,7 @@ const Footer: React.FC = () => {
                 Events
               </Link>
               <Link to="/pastors-message" className="block text-white/80 hover:text-accent transition-colors">
-                Pastors Message
+                Pastors message
               </Link>
             </div>
           </div>

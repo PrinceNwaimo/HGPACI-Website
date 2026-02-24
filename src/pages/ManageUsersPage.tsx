@@ -57,12 +57,8 @@ const ManageUsersPage: React.FC = () => {
   const [newRole, setNewRole] = useState<'user' | 'admin'>('user');
 
   useEffect(() => {
-    if (!isAdmin) {
-      navigate('/');
-      return;
-    }
-    loadUsers();
-  }, [isAdmin, navigate]);
+       loadUsers();
+  }, []);
 
   useEffect(() => {
     if (searchQuery) {

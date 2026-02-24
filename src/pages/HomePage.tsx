@@ -33,10 +33,10 @@ export default function HomePage() {
           </p>
           <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 xl:p-8 mb-8 glow-effect">
             <p className="text-xl xl:text-3xl font-serif italic text-accent mb-2 max-sm:text-lg">
-              "Not by might nor by power, but by My Spirit,"
+              "The Spirit of the Lord is upon me, Because he hath anointed me to preach the gospel to the poor; He hath sent me to heal the brokenhearted, to preach deliverance to the captives, And recovering of sight to the blind, To set at liberty them that are bruised,To preach the acceptable year of the Lord."
             </p>
             <p className="text-lg xl:text-xl text-white max-sm:text-base">
-              says the Lord Almighty. – Zechariah 4:6
+               – Luke 4:18-19
             </p>
           </div>
           <div className="flex flex-col xl:flex-row gap-4 justify-center">
