@@ -3,7 +3,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Link } from "react-router-dom";
 import { Flame, Heart, Users, BookOpen } from "lucide-react";
 import churchLogo from "@/assets/Church Logo.jpeg";
-import churchImage from "@/assets/about/Church worship service.jpeg";
+import churchImage from "@/assets/about/Pastor and wife.jpeg";
 
 export default function HomePage() {
   return (
@@ -129,7 +129,7 @@ export default function HomePage() {
               <img
                 src={churchImage}
                 alt="Church community fellowship"
-                className="rounded-lg elegant-shadow w-full h-[300px] xl:h-[400px] object-cover"
+                className="rounded-lg elegant-shadow w-full h-[300px] xl:h-[400px] object-cover  object-top"
               />
             </div>
             <div className="space-y-6">

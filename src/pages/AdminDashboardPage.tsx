@@ -8,7 +8,8 @@ import {
   TrendingUp,
   Calendar,
   Upload,
-  Settings
+  Settings,
+  Mail
 } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -84,7 +85,7 @@ const AdminDashboardPage: React.FC = () => {
             <h1 className="text-4xl font-bold gradient-text">Admin Dashboard</h1>
           </div>
           <p className="text-muted-foreground">
-            Welcome back, {profile?.username}! Manage your church website from here.
+            Welcome back, {profile?.username}! Manage Holy Ghost Power Anointed Church website from here.
           </p>
         </div>
 
@@ -120,6 +121,14 @@ const AdminDashboardPage: React.FC = () => {
           >
             <Settings className="w-5 h-5" />
             <span>Manage Membership</span>
+          </Button>
+           <Button
+            onClick={() => navigate('/admin/contact')}
+            variant="outline"
+            className="h-auto py-4 flex items-center justify-center gap-2"
+          >
+            <Mail className="w-5 h-5" />
+            <span>Manage Contact</span>
           </Button>
         </div>
         

@@ -14,6 +14,7 @@ import ManageUsersPage from './pages/ManageUsersPage';
 import MembershipFormPage from './pages/MembershipFormPage';
 import ManageMembershipPage from './pages/ManageMembershipPage';
 import PastorsMessagePage from './pages/PastorsMessagePage';
+import ManageContactPage from './pages/ManageContactPage';
 import type { ReactNode } from 'react';
 
 export interface RouteConfig {
@@ -136,6 +137,12 @@ const routes: RouteConfig[] = [
     element: <ManageMembershipPage />,
     visible: false,
     admin: true
+  },
+   {
+    name: 'Manage Contact',
+    path: '/admin/contact',
+    element: <ManageContactPage />,
+    visible: false
   }
 ];
 

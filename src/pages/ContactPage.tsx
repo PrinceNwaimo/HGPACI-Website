@@ -2,9 +2,8 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
-import { MapPin, Phone, Mail, Clock } from "lucide-react";
+import { MapPin, Phone, Mail, Clock, Loader2 } from "lucide-react";
 import { useState } from "react";
 import {
   Form,
@@ -15,14 +14,15 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { useForm } from "react-hook-form";
+import { Checkbox } from "@/components/ui/checkbox";
+import { submitContactMessage } from "@/db/contactApi";
 
 type ContactFormData = {
   name: string;
   email: string;
-  phone: string;
   subject: string;
   message: string;
-  requestType: string;
+  is_prayer_request: boolean;
 };
 
 export default function ContactPage() {
@@ -33,26 +33,33 @@ export default function ContactPage() {
     defaultValues: {
       name: "",
       email: "",
-      phone: "",
       subject: "",
       message: "",
-      requestType: "general",
+      is_prayer_request: false,
     },
   });
 
   const onSubmit = async (data: ContactFormData) => {
-    setIsSubmitting(true);
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-    
-    console.log("Contact form submitted:", data);
-    
-    toast({
-      title: "Message Sent!",
-      description: "Thank you for contacting us. We'll get back to you soon.",
-    });
-    
-    form.reset();
-    setIsSubmitting(false);
+    try {
+      setIsSubmitting(true);
+      await submitContactMessage(data);
+      
+      toast({
+        title: "Message Sent!",
+        description: "Thank you for contacting us. We'll get back to you soon.",
+      });
+
+      form.reset();
+    } catch (error) {
+      console.error("Error submitting contact form:", error);
+      toast({
+        title: "Error",
+        description: "Failed to send message. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -89,8 +96,8 @@ export default function ContactPage() {
                       <div>
                         <h3 className="font-bold text-lg xl:text-xl mb-2 max-sm:text-base">Our Location</h3>
                         <p className="text-muted-foreground max-sm:text-sm">
-                          75 Abam Street <br />
-                          Umuahia,Abia State,Nigeria.
+                          75 Abam Street<br />
+                          Umuahia, Abia State, Nigeria.
                         </p>
                       </div>
                     </div>
@@ -106,7 +113,7 @@ export default function ContactPage() {
                       <div>
                         <h3 className="font-bold text-lg xl:text-xl mb-2 max-sm:text-base">Phone</h3>
                         <p className="text-muted-foreground max-sm:text-sm">
-                          +2348027033783
+                          (+234)8027033783
                         </p>
                       </div>
                     </div>
@@ -195,20 +202,6 @@ export default function ContactPage() {
 
                       <FormField
                         control={form.control}
-                        name="phone"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel>Phone</FormLabel>
-                            <FormControl>
-                              <Input type="tel" placeholder=" +2348063648007" {...field} />
-                            </FormControl>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
-
-                      <FormField
-                        control={form.control}
                         name="subject"
                         rules={{ required: "Subject is required" }}
                         render={({ field }) => (
@@ -222,28 +215,6 @@ export default function ContactPage() {
                         )}
                       />
 
-                      <div className="space-y-2">
-                        <Label>Request Type</Label>
-                        <div className="grid grid-cols-2 gap-3">
-                          <Button
-                            type="button"
-                            variant={form.watch("requestType") === "general" ? "default" : "outline"}
-                            onClick={() => form.setValue("requestType", "general")}
-                            className="w-full"
-                          >
-                            General Inquiry
-                          </Button>
-                          <Button
-                            type="button"
-                            variant={form.watch("requestType") === "prayer" ? "default" : "outline"}
-                            onClick={() => form.setValue("requestType", "prayer")}
-                            className="w-full"
-                          >
-                            Prayer Request
-                          </Button>
-                        </div>
-                      </div>
-
                       <FormField
                         control={form.control}
                         name="message"
@@ -253,7 +224,7 @@ export default function ContactPage() {
                             <FormLabel>Message *</FormLabel>
                             <FormControl>
                               <Textarea
-                                placeholder="Tell us how we can help you..."
+                                placeholder="Your message or prayer request..."
                                 className="min-h-[150px]"
                                 {...field}
                               />
@@ -263,8 +234,38 @@ export default function ContactPage() {
                         )}
                       />
 
-                      <Button type="submit" size="lg" className="w-full" disabled={isSubmitting}>
-                        {isSubmitting ? "Sending..." : "Send Message"}
+                      <FormField
+                        control={form.control}
+                        name="is_prayer_request"
+                        render={({ field }) => (
+                          <FormItem className="flex flex-row items-start space-x-3 space-y-0">
+                            <FormControl>
+                              <Checkbox
+                                checked={field.value}
+                                onCheckedChange={field.onChange}
+                              />
+                            </FormControl>
+                            <div className="space-y-1 leading-none">
+                              <FormLabel className="cursor-pointer">
+                                This is a prayer request
+                              </FormLabel>
+                            </div>
+                          </FormItem>
+                        )}
+                      />
+
+                      <Button type="submit" className="w-full" disabled={isSubmitting}>
+                        {isSubmitting ? (
+                          <>
+                            <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                            Sending...
+                          </>
+                        ) : (
+                          <>
+                            <Mail className="w-4 h-4 mr-2" />
+                            Send Message
+                          </>
+                        )}
                       </Button>
                     </form>
                   </Form>
@@ -278,7 +279,7 @@ export default function ContactPage() {
               Need Immediate <span className="gradient-gold-text">Prayer?</span>
             </h3>
             <p className="text-lg xl:text-xl mb-8 text-white/90 max-w-2xl mx-auto max-sm:text-base">
-              If you need urgent prayer, please call our prayer line at +2348027033783 or visit us during service times. We're here to stand with you in faith.
+              If you need urgent prayer, please call our prayer line at (+234)8027033783 or visit us during service times. We're here to stand with you in faith.
             </p>
           </div>
         </div>
