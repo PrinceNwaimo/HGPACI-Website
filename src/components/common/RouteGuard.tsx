@@ -14,6 +14,7 @@ const PUBLIC_ROUTES = [
   '/contact',
   '/give',
   '/login',
+   '/membership',
 ];
 
 // Routes that require admin access

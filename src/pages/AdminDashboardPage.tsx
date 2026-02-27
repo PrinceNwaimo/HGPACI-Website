@@ -113,7 +113,16 @@ const AdminDashboardPage: React.FC = () => {
             <Users className="w-5 h-5" />
             <span>Manage Users</span>
           </Button>
+          <Button
+            onClick={() => navigate('/admin/membership')}
+            variant="outline"
+            className="h-auto py-4 flex items-center justify-center gap-2"
+          >
+            <Settings className="w-5 h-5" />
+            <span>Manage Membership</span>
+          </Button>
         </div>
+        
 
         {/* Statistics Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">

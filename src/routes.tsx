@@ -11,6 +11,8 @@ import LoginPage from './pages/LoginPage';
 import AdminDashboardPage from './pages/AdminDashboardPage';
 import ManageSermonsPage from './pages/ManageSermonsPage';
 import ManageUsersPage from './pages/ManageUsersPage';
+import MembershipFormPage from './pages/MembershipFormPage';
+import ManageMembershipPage from './pages/ManageMembershipPage';
 import PastorsMessagePage from './pages/PastorsMessagePage';
 import type { ReactNode } from 'react';
 
@@ -74,6 +76,12 @@ const routes: RouteConfig[] = [
     element: <ContactPage />,
     visible: true
   },
+    {
+    name: 'Membership',
+    path: '/membership',
+    element: <MembershipFormPage />,
+    visible: true
+  },
 
   // =========================
   // Semi-Public / Hidden
@@ -119,6 +127,13 @@ const routes: RouteConfig[] = [
     name: 'Manage Users',
     path: '/admin/users',
     element: <ManageUsersPage />,
+    visible: false,
+    admin: true
+  },
+  {
+    name: 'Manage Membership',
+    path: '/admin/membership',
+    element: <ManageMembershipPage />,
     visible: false,
     admin: true
   }
