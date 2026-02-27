@@ -6,7 +6,7 @@ import { miaodaDevPlugin } from 'miaoda-sc-plugin';
 import { defineConfig, PluginOption } from 'vite';
 
 export default defineConfig({
-  base: '/', // 👈 REQUIRED for GitHub Pages
+  base: '/HGPACI-Website/', // 👈 REQUIRED for GitHub Pages
   plugins: [
     react(),
     svgr({
