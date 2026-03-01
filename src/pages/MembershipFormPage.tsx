@@ -299,7 +299,7 @@ const MembershipFormPage: React.FC = () => {
             <p>
               For immediate assistance, please contact us at{' '}
               <a href="tel:5557778888" className="text-primary hover:underline">
-                (555) 777-8888
+                (+234)8027033783
               </a>
               {' '}or{' '}
               <a href="mailto:info@hgpaci.org" className="text-primary hover:underline">

@@ -6,7 +6,7 @@ import path from "path";
 import { miaodaDevPlugin } from "file:///C:/Users/USER/OneDrive/Documenten/HolyGhost%20Annointed/node_modules/miaoda-sc-plugin/dist/index.js";
 var __vite_injected_original_dirname = "C:\\Users\\USER\\OneDrive\\Documenten\\HolyGhost Annointed";
 var vite_config_default = defineConfig({
-  base: "/HGPACI-Website/",
+  base: '/HGPACI-Website/',
   // 👈 REQUIRED for GitHub Pages
   plugins: [
     react(),
